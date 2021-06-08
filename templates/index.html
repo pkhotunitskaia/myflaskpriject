@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moscow firefighters statisrics</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        #main-container {
+            background-image: url('https://apidata.mos.ru/v1/');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #cells-table{
+            background-color: aliceblue;
+            capacity: 0.6;
+            height: 500px;
+            width: 200px;
+            margin-left: auto;
+            margin-rigth: auto;
+        }
+    </style>
+</head>
+<body>
+    <h2>This is Moscow firefighters statistics by month</h2>
+    <div id="main-container">
+        <table id="cells-table">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Calls count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for element in data %}
+                    <tr>
+                        <td>{{ element['month_name'] }}</td>
+                        <td>{{ element['calls_count'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
